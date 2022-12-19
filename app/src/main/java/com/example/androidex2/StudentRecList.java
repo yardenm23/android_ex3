@@ -6,8 +6,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
-import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
@@ -19,65 +17,65 @@ import com.example.androidex2.model.Student;
 import java.util.List;
 
 public class StudentRecList extends AppCompatActivity {
-    List<Student> data;
+    List<Student> studentsList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_rec_list);
 
-        data = Model.instance().getAllStudent();
-        RecyclerView list = findViewById(R.id.studentrec_list);
-        list.setHasFixedSize(true);
+        studentsList = Model.instance().getAllStudent();
+        RecyclerView recyclerList = findViewById(R.id.studentrec_list);
+        recyclerList.setHasFixedSize(true);
 
-        list.setLayoutManager(new LinearLayoutManager(this));
+        recyclerList.setLayoutManager(new LinearLayoutManager(this));
         StudentRecAdapter adapter = new StudentRecAdapter();
-        list.setAdapter(adapter);
+        recyclerList.setAdapter(adapter);
 
         adapter.setOnItemClickListener(new OnItemClickListener() {
             @Override
-            public void onItemClick(int pos) { // what happend in click on row ( in click move to details page)
+            public void onItemClick(int position) { // what happend in click on row ( in click move to details page)
 
             }
         });
     }
 
     class StudentViewHolder extends RecyclerView.ViewHolder{
-        TextView nameTv;
-        TextView idTv;
-        CheckBox cb;
+        TextView nameTextView;
+        TextView idTextView;
+        CheckBox checkBox;
         public StudentViewHolder(@NonNull View itemView, OnItemClickListener listener) {
             super(itemView);
-            nameTv = itemView.findViewById(R.id.studentlistrow_name_tv);
-            idTv = itemView.findViewById(R.id.studentlistrow_id_tv);
-            cb = itemView.findViewById(R.id.studentlistrow_cb);
-            cb.setOnClickListener(new View.OnClickListener() {
+            nameTextView = itemView.findViewById(R.id.studentlistrow_name_tv);
+            idTextView = itemView.findViewById(R.id.studentlistrow_id_tv);
+            checkBox = itemView.findViewById(R.id.studentlistrow_cb);
+            checkBox.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    int pos = (int)cb.getTag();
-                    Student std = data.get(pos);
-                    std.setCb(cb.isChecked());
+                    int position = (int) checkBox.getTag();
+                    Student student = studentsList.get(position);
+                    student.setCheckBox(checkBox.isChecked());
                 }
             });
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    int pos = getAdapterPosition();
-                    listener.onItemClick(pos);
+                    int position = getAdapterPosition();
+                    listener.onItemClick(position);
                 }
             });
         }
 
-        public void bind(Student std,int pos) {
-            nameTv.setText(std.getName());
-            idTv.setText(std.getId());
-            cb.setChecked(std.getCb());
-            cb.setTag(pos);
+        public void bind(Student std,int position) {
+            nameTextView.setText(std.getName());
+            idTextView.setText(std.getId());
+            checkBox.setChecked(std.getCheckBox());
+            checkBox.setTag(position);
         }
     }
 
     public interface OnItemClickListener{
-        void onItemClick(int pos);
+        void onItemClick(int position);
     }
     class StudentRecAdapter extends RecyclerView.Adapter<StudentViewHolder>{
         OnItemClickListener listener;
@@ -93,13 +91,13 @@ public class StudentRecList extends AppCompatActivity {
 
         @Override
         public void onBindViewHolder(@NonNull StudentViewHolder holder, int position) { // connect between data and row
-            Student std = data.get(position);
-            holder.bind(std,position);
+            Student student = studentsList.get(position);
+            holder.bind(student,position);
         }
 
         @Override
         public int getItemCount() { // how many rows in list
-            return data.size();
+            return studentsList.size();
         }
     }
 }

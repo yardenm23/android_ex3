@@ -4,13 +4,13 @@ public class Student {
     String name;
     String id;
     String avatarUrl;
-    Boolean cb;
+    Boolean checkBox;
 
-    public Student(String name, String id, String avatarUrl, Boolean cb) {
+    public Student(String name, String id, String avatarUrl, Boolean checkBox) {
         this.name = name;
         this.id = id;
         this.avatarUrl = avatarUrl;
-        this.cb = cb;
+        this.checkBox = checkBox;
     }
 
     public String getName() {
@@ -37,11 +37,11 @@ public class Student {
         this.avatarUrl = avatarUrl;
     }
 
-    public Boolean getCb() {
-        return cb;
+    public Boolean getCheckBox() {
+        return checkBox;
     }
 
-    public void setCb(Boolean cb) {
-        this.cb = cb;
+    public void setCheckBox(Boolean checkBox) {
+        this.checkBox = checkBox;
     }
 }
