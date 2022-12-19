@@ -63,7 +63,7 @@ public class StudentListActivity extends AppCompatActivity {
                     public void onClick(View view) {
                         int pos = (int)cb.getTag();
                         Student std = data.get(pos);
-                        std.setCb(cb.isChecked());
+                        std.setCheckBox(cb.isChecked());
 
                     }
                 });
@@ -76,7 +76,7 @@ public class StudentListActivity extends AppCompatActivity {
             Student std = data.get(pos);
             nameTv.setText(std.getName());
             idTv.setText(std.getId());
-            cb.setChecked(std.getCb());
+            cb.setChecked(std.getCheckBox());
             cb.setTag(pos);
             return view;
         }
