@@ -46,7 +46,6 @@ public class AddStudentActivity extends AppCompatActivity {
             }
             else{
                 finish();
-                //errorTv.setText("Student added successfully");
             }
         });
 

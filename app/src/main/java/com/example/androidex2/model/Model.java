@@ -11,21 +11,21 @@ public class Model {
     }
 
     private Model() {
-        addStudent(new Student("Moshe", "12340", "", "","",false));
-        addStudent(new Student("Dani", "12341", "", "","",false));
-        addStudent(new Student("Yossi", "12342", "", "","",false));
-        addStudent(new Student("Alice", "12343", "", "","",false));
-        addStudent(new Student("Bob", "12344", "", "","",false));
-        addStudent(new Student("Charlie", "12345", "", "","",false));
-        addStudent(new Student("David", "12346", "", "","",false));
-        addStudent(new Student("Foo", "12347", "", "","",false));
-        addStudent(new Student("Bar", "12348", "", "","",false));
-        addStudent(new Student("Baz", "12349", "", "","",false));
-        addStudent(new Student("Lidor", "12350", "", "","",false));
-        addStudent(new Student("Ofir", "12351", "", "","",false));
-        addStudent(new Student("Yuval", "12352", "", "","",false));
-        addStudent(new Student("Yahav", "12353", "", "","",false));
-        addStudent(new Student("Niv", "12354", "", "","",false));
+        addStudent(new Student("Moshe", "12340", "", "", "", false));
+        addStudent(new Student("Dani", "12341", "", "", "", false));
+        addStudent(new Student("Yossi", "12342", "", "", "", false));
+        addStudent(new Student("Alice", "12343", "", "", "", false));
+        addStudent(new Student("Bob", "12344", "", "", "", false));
+        addStudent(new Student("Charlie", "12345", "", "", "", false));
+        addStudent(new Student("David", "12346", "", "", "", false));
+        addStudent(new Student("Foo", "12347", "", "", "", false));
+        addStudent(new Student("Bar", "12348", "", "", "", false));
+        addStudent(new Student("Baz", "12349", "", "", "", false));
+        addStudent(new Student("Lidor", "12350", "", "", "", false));
+        addStudent(new Student("Ofir", "12351", "", "", "", false));
+        addStudent(new Student("Yuval", "12352", "", "", "", false));
+        addStudent(new Student("Yahav", "12353", "", "", "", false));
+        addStudent(new Student("Niv", "12354", "", "", "", false));
     }
 
     List<Student> data = new LinkedList<>();
@@ -42,10 +42,57 @@ public class Model {
                 break;
             }
         }
-        if(!isIdAlreadyExist) {
+        if (!isIdAlreadyExist) {
             data.add(std);
             return true;
         }
         return false;
+    }
+
+    public int fidStudentIndex(Student std) {
+        for (int i = 0; i < data.size(); i++) {
+            Student currentStd = data.get(i);
+            if (currentStd.getId().equals(std.getId())
+                    && currentStd.getName().equals(std.getName())
+                    && currentStd.getPhone().equals(std.getPhone())
+                    && currentStd.getAddress().equals(std.getAddress())
+                    && currentStd.getCheckBox() == std.getCheckBox()) {
+                return i;
+
+            }
+        }
+        return -1;
+    }
+
+    public boolean deleteStudent(Student std) {
+       int studentIndex = fidStudentIndex(std);
+       if(studentIndex==-1)
+           return false;
+       else{
+           data.remove(studentIndex);
+           return true;
+       }
+    }
+    public int editStudent(String oldId, Student std){
+        // if id is different from old id and already exist
+        if(!std.getId().equals(oldId)) {
+            for (Student student : data) {
+                if (student.getId().equals(std.getId()))
+                    return -1;
+            }
+        }
+        int studentIndex = -1;
+        for (int i=0;i<data.size();i++ ) {
+            if(data.get(i).getId().equals(oldId)){
+                studentIndex = i;
+                break;
+            }
+        }
+        if(studentIndex==-1)
+            return 0;
+        else{
+            data.set(studentIndex, std);
+            return 1;
+        }
     }
 }
