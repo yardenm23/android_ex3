@@ -5,9 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.TextView;
 
@@ -22,7 +24,14 @@ public class StudentRecList extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_student_rec_list);
+        setContentView(R.layout.activity_student_rec_list); //load the activity
+
+        Button addStudentBtn = findViewById(R.id.studentreclist_add_student_btn);
+        addStudentBtn.setOnClickListener(view -> {
+            Intent intent = new Intent(this, AddStudentActivity.class);
+            startActivity(intent);
+        });
+
 
         studentsList = Model.instance().getAllStudent();
         RecyclerView recyclerList = findViewById(R.id.studentrec_list);

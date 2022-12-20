@@ -4,37 +4,46 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddStudentActivity">
+    tools:context=".EditStudentActivity">
 
     <Button
-        android:id="@+id/addstudent_save_btn"
+        android:id="@+id/editstudent_save_btn"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="2dp"
-        android:layout_marginEnd="5dp"
+        android:layout_marginEnd="3dp"
         android:text="save"
         app:cornerRadius="5dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/addstudent_cancel_btn"
-        app:layout_constraintTop_toBottomOf="@+id/addstudent_error_tv"
-        app:layout_constraintVertical_bias="0.934" />
+        app:layout_constraintStart_toEndOf="@+id/editstudent_delete_btn"
+        tools:layout_editor_absoluteY="683dp" />
 
     <Button
-        android:id="@+id/addstudent_cancel_btn"
+        android:id="@+id/editstudent_delete_btn"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginEnd="2dp"
+        android:text="delete"
+        app:cornerRadius="5dp"
+        app:layout_constraintEnd_toStartOf="@+id/editstudent_save_btn"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/editstudent_cancel_btn"
+        tools:layout_editor_absoluteY="683dp" />
+
+    <Button
+        android:id="@+id/editstudent_cancel_btn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="3dp"
         android:layout_marginEnd="2dp"
         android:text="cancel"
         app:cornerRadius="5dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/addstudent_save_btn"
+        app:layout_constraintEnd_toStartOf="@+id/editstudent_delete_btn"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addstudent_error_tv"
-        app:layout_constraintVertical_bias="0.934" />
+        tools:layout_editor_absoluteY="683dp" />
 
     <TextView
         android:id="@+id/textView"
@@ -92,7 +101,7 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <CheckBox
-        android:id="@+id/addstudent_checkbox"
+        android:id="@+id/editstudent_checkbox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Checked"
@@ -116,20 +125,20 @@
         app:srcCompat="@drawable/newavatar" />
 
     <EditText
-        android:id="@+id/addstudent_name_input"
+        android:id="@+id/editstudent_name_input"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.69"
+        app:layout_constraintHorizontal_bias="0.68"
         app:layout_constraintStart_toEndOf="@+id/textView"
         app:layout_constraintTop_toBottomOf="@+id/imageView"
         app:layout_constraintVertical_bias="0.081" />
 
     <EditText
-        android:id="@+id/addstudent_address_input"
+        android:id="@+id/editstudent_address_input"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
@@ -137,47 +146,29 @@
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.634"
+        app:layout_constraintHorizontal_bias="0.621"
         app:layout_constraintStart_toEndOf="@+id/textView4"
-        app:layout_constraintTop_toBottomOf="@+id/addstudent_phone_input"
+        app:layout_constraintTop_toBottomOf="@+id/editstudent_phone_input"
         app:layout_constraintVertical_bias="0.0" />
 
     <EditText
-        android:id="@+id/addstudent_id_input"
+        android:id="@+id/editstudent_id_input"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintTop_toBottomOf="@+id/editstudent_name_input"
+        tools:layout_editor_absoluteX="170dp" />
+
+    <EditText
+        android:id="@+id/editstudent_phone_input"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:ems="10"
         android:inputType="number"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.758"
-        app:layout_constraintStart_toEndOf="@+id/textView2"
-        app:layout_constraintTop_toBottomOf="@+id/addstudent_name_input"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <EditText
-        android:id="@+id/addstudent_phone_input"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:ems="10"
-        android:inputType="number"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.758"
-        app:layout_constraintStart_toEndOf="@+id/textView2"
-        app:layout_constraintTop_toBottomOf="@+id/addstudent_id_input"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <TextView
-        android:id="@+id/addstudent_error_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addstudent_checkbox"
-        app:layout_constraintVertical_bias="0.186" />
+        app:layout_constraintTop_toBottomOf="@+id/editstudent_id_input"
+        tools:layout_editor_absoluteX="170dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
