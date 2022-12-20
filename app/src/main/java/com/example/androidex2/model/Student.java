@@ -4,12 +4,16 @@ public class Student {
     String name;
     String id;
     String avatarUrl;
+    String phone;
+    String address;
     Boolean checkBox;
 
-    public Student(String name, String id, String avatarUrl, Boolean checkBox) {
+    public Student(String name, String id, String avatarUrl, String phone, String address, Boolean checkBox) {
         this.name = name;
         this.id = id;
         this.avatarUrl = avatarUrl;
+        this.phone = phone;
+        this.address = address;
         this.checkBox = checkBox;
     }
 

@@ -15,13 +15,13 @@ import com.example.androidex2.model.Student;
 import java.util.List;
 
 public class AddStudentActivity extends AppCompatActivity {
-    List<Student> studentsList;
+    Model model;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_student);
 
-        studentsList = Model.instance().getAllStudent();
+        model = Model.instance();
 
         Button addStudentSaveBtn = findViewById(R.id.addstudent_save_btn);
         addStudentSaveBtn.setOnClickListener(view -> {
@@ -37,19 +37,17 @@ public class AddStudentActivity extends AppCompatActivity {
             String idInputVal = String.valueOf(idInput.getText());
             String phoneInputVal = String.valueOf(phoneInput.getText());
             String addressInputVal = String.valueOf(addressInput.getText());
-            /// check box val
+            Boolean checkBoxVal = checkBox.isChecked();
 
-            boolean idAlreadyExist = false;
-            for (Student student: studentsList) {
-                if (student.getId().equals(idInputVal)) {
-                    idAlreadyExist = true;
-                    break;
-                }
+            boolean studentAdded = false;
+            studentAdded = model.addStudent(new Student(nameInputVal, idInputVal, "",phoneInputVal,addressInputVal, checkBoxVal));
+            if(!studentAdded){
+                errorTv.setText("Id is already exist");
             }
-            if(idAlreadyExist)
-                errorTv.setText("Id already exist");
-            else
-                errorTv.setText("");
+            else{
+                finish();
+                //errorTv.setText("Student added successfully");
+            }
         });
 
         Button addStudentCancelBtn = findViewById(R.id.addstudent_cancel_btn);
