@@ -10,7 +10,7 @@ public class Model {
     }
     private Model(){
         for(int i=0;i<20;i++){
-            addStudent(new Student("name" + i," " + i,"",false));
+            addStudent(new Student("name" + i,"0","",false));
         }
     }
     List<Student> data = new LinkedList<>();
