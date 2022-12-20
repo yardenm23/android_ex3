@@ -7,6 +7,7 @@ import android.util.Log;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.example.androidex2.model.Model;
 import com.example.androidex2.model.Student;
@@ -24,16 +25,20 @@ public class AddStudentActivity extends AppCompatActivity {
 
         Button addStudentSaveBtn = findViewById(R.id.addstudent_save_btn);
         addStudentSaveBtn.setOnClickListener(view -> {
+
             EditText nameInput = findViewById(R.id.addstudent_name_input);
             EditText idInput = findViewById(R.id.addstudent_id_input);
             EditText phoneInput = findViewById(R.id.addstudent_phone_input);
             EditText addressInput = findViewById(R.id.addstudent_address_input);
             CheckBox checkBox = findViewById(R.id.addstudent_checkbox);
-            String idInputVal = idInput.getText().toString();
+            TextView errorTv = findViewById(R.id.addstudent_error_tv);
+
             String nameInputVal = String.valueOf(nameInput.getText());
-            if( idInputVal instanceof String ) {
-               Log.d("TAG", "!!!!!");
-            }
+            String idInputVal = String.valueOf(idInput.getText());
+            String phoneInputVal = String.valueOf(phoneInput.getText());
+            String addressInputVal = String.valueOf(addressInput.getText());
+            /// check box val
+
             boolean idAlreadyExist = false;
             for (Student student: studentsList) {
                 if (student.getId().equals(idInputVal)) {
@@ -41,7 +46,10 @@ public class AddStudentActivity extends AppCompatActivity {
                     break;
                 }
             }
-            Log.d("TAG", "is id already exsist? " + idAlreadyExist);
+            if(idAlreadyExist)
+                errorTv.setText("Id already exist");
+            else
+                errorTv.setText("");
         });
 
         Button addStudentCancelBtn = findViewById(R.id.addstudent_cancel_btn);
