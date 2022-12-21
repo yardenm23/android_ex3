@@ -2,6 +2,7 @@ package com.example.androidex2;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
@@ -45,7 +46,9 @@ public class AddStudentActivity extends AppCompatActivity {
                 errorTv.setText("Id is already exist");
             }
             else{
-                finish();
+                Intent intentRecList = new Intent(this, StudentRecList.class);
+                intentRecList.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intentRecList);
             }
         });
 

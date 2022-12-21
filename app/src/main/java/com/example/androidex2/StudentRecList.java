@@ -25,11 +25,10 @@ public class StudentRecList extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_student_rec_list); //load the activity
+        setContentView(R.layout.activity_student_rec_list);
 
         Button addStudentBtn = findViewById(R.id.studentreclist_add_student_btn);
         addStudentBtn.setOnClickListener(view -> {
-
 
             Intent intent = new Intent(this, AddStudentActivity.class);
             startActivity(intent);
@@ -46,18 +45,20 @@ public class StudentRecList extends AppCompatActivity {
 
         adapter.setOnItemClickListener(new OnItemClickListener() {
             @Override
-            public void onItemClick(int position) { // what happend in click on row ( in click move to details page)
+            public void onItemClick(int position) {
                 Student student = studentsList.get(position);
                 String nameToSend = student.getName();
                 String idToSend = student.getId();
                 String phoneToSend = student.getPhone();
                 String addressToSend = student.getAddress();
+                String cbToSend = String.valueOf(student.getCheckBox());
 
                 Intent intent = new Intent(StudentRecList.this, StudentDetailsActivity.class);
                 intent.putExtra("Name", nameToSend);
                 intent.putExtra("ID", idToSend);
                 intent.putExtra("Phone", phoneToSend);
                 intent.putExtra("Address",addressToSend);
+                intent.putExtra("CheckBox",cbToSend);
                 startActivity(intent);
             }
         });
@@ -107,14 +108,13 @@ public class StudentRecList extends AppCompatActivity {
         }
         @NonNull
         @Override
-        public StudentViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) { // create view of row
+        public StudentViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
             View view = getLayoutInflater().inflate(R.layout.student_list_row,parent,false);
             return  new StudentViewHolder(view,listener);
         }
 
         @Override
-        public void onBindViewHolder(@NonNull StudentViewHolder holder, int position) { // connect between data and row
-            Student student = studentsList.get(position);
+        public void onBindViewHolder(@NonNull StudentViewHolder holder, int position) {             Student student = studentsList.get(position);
             holder.bind(student,position);
         }
 

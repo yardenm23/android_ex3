@@ -2,6 +2,7 @@ package com.example.androidex2;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
@@ -48,8 +49,6 @@ public class EditStudentActivity extends AppCompatActivity {
             checkBox.setChecked(true);
         }
 
-
-
         Button editStudentSaveBtn = findViewById(R.id.editstudent_save_btn);
         String finalStudentId = studentId;
         editStudentSaveBtn.setOnClickListener(view -> {
@@ -67,7 +66,9 @@ public class EditStudentActivity extends AppCompatActivity {
                 errorTv.setText("Couldn't find the id");
             }
             else{
-                finish();
+                Intent intentRecList = new Intent(this, StudentRecList.class);
+                intentRecList.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intentRecList);
             }
         });
         Button editStudentDeleteBtn = findViewById(R.id.editstudent_delete_btn);
@@ -80,8 +81,11 @@ public class EditStudentActivity extends AppCompatActivity {
             boolean isDeleted = model.deleteStudent(new Student(nameInputVal, idInputVal,"", phoneInputVal, addressInputVal, checkBoxVal));
             if(!isDeleted)
                 errorTv.setText("Student not found");
-            else
-                finish();
+            else{
+                Intent intentRecList = new Intent(this, StudentRecList.class);
+                intentRecList.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intentRecList);
+            }
 
         });
         Button editStudentCancelBtn = findViewById(R.id.editstudent_cancel_btn);
