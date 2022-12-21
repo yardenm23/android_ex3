@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -28,6 +29,8 @@ public class StudentRecList extends AppCompatActivity {
 
         Button addStudentBtn = findViewById(R.id.studentreclist_add_student_btn);
         addStudentBtn.setOnClickListener(view -> {
+
+
             Intent intent = new Intent(this, AddStudentActivity.class);
             startActivity(intent);
         });
@@ -44,7 +47,18 @@ public class StudentRecList extends AppCompatActivity {
         adapter.setOnItemClickListener(new OnItemClickListener() {
             @Override
             public void onItemClick(int position) { // what happend in click on row ( in click move to details page)
+                Student student = studentsList.get(position);
+                String nameToSend = student.getName();
+                String idToSend = student.getId();
+                String phoneToSend = student.getPhone();
+                String addressToSend = student.getAddress();
 
+                Intent intent = new Intent(StudentRecList.this, StudentDetailsActivity.class);
+                intent.putExtra("Name", nameToSend);
+                intent.putExtra("ID", idToSend);
+                intent.putExtra("Phone", phoneToSend);
+                intent.putExtra("Address",addressToSend);
+                startActivity(intent);
             }
         });
     }
