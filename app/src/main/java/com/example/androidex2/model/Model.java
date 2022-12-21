@@ -27,21 +27,7 @@ public class Model {
         addStudent(new Student("Yahav", "12353", "", "050-8206459","HaGolan 3, Netanya",false));
         addStudent(new Student("Niv", "12354", "", "053-74962205","Bograshov 15, Tel Aviv",false));
 
-        addStudent(new Student("Moshe", "12340", "", "", "", false));
-        addStudent(new Student("Dani", "12341", "", "", "", false));
-        addStudent(new Student("Yossi", "12342", "", "", "", false));
-        addStudent(new Student("Alice", "12343", "", "", "", false));
-        addStudent(new Student("Bob", "12344", "", "", "", false));
-        addStudent(new Student("Charlie", "12345", "", "", "", false));
-        addStudent(new Student("David", "12346", "", "", "", false));
-        addStudent(new Student("Foo", "12347", "", "", "", false));
-        addStudent(new Student("Bar", "12348", "", "", "", false));
-        addStudent(new Student("Baz", "12349", "", "", "", false));
-        addStudent(new Student("Lidor", "12350", "", "", "", false));
-        addStudent(new Student("Ofir", "12351", "", "", "", false));
-        addStudent(new Student("Yuval", "12352", "", "", "", false));
-        addStudent(new Student("Yahav", "12353", "", "", "", false));
-        addStudent(new Student("Niv", "12354", "", "", "", false));
+
     }
 
     List<Student> data = new LinkedList<>();

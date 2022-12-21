@@ -16,18 +16,7 @@ public class MainActivity extends AppCompatActivity {
 
         Button btn = findViewById(R.id.main_btn);
         btn.setOnClickListener(view -> {
-            String id="12345";
-            String name = "Charlie";
-            String phone = "122121221";
-            String address = "jfjfjjfjfj";
-            String checkBox = "true";
-            Intent intent = new Intent(this, EditStudentActivity.class);
-            intent.putExtra("id",id);
-            intent.putExtra("name", name);
-            intent.putExtra("phone", phone);
-            intent.putExtra("address", address);
-            intent.putExtra("checkBox", checkBox);
-            startActivity(intent);
+
         });
     }
 }
