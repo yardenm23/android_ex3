@@ -11,21 +11,21 @@ public class Model {
     }
 
     private Model() {
-        addStudent(new Student("Moshe", "12340", "", "052-8459635","Hertzel 24, Tel Aviv",false));
-        addStudent(new Student("Dani", "12341", "", "050-1648032","Hosen 8, Rehovot",false));
-        addStudent(new Student("Yossi", "12342", "", "050-3574105","Oren 19, Haifa",false));
-        addStudent(new Student("Alice", "12343", "", "052-8842367","Nov 12, Rishon LeZion",false));
-        addStudent(new Student("Bob", "12344", "", "054-9032247","Hillel 22, Jerusalem",false));
-        addStudent(new Student("Charlie", "12345", "", "052-7836641","Gordon 11, Netanya",false));
-        addStudent(new Student("David", "12346", "", "050-1165493","Allenby 10, Tel Aviv",false));
-        addStudent(new Student("Foo", "12347", "", "054-7785319","HaGefen 5, Haifa",false));
-        addStudent(new Student("Bar", "12348", "", "052-7316055","Bialik 7, Holon",false));
-        addStudent(new Student("Baz", "12349", "", "053-8499256","Keshet 23, Rishon LeZion",false));
-        addStudent(new Student("Lidor", "12350", "", "050-3345191","Rotchild 32, Tel Aviv",false));
-        addStudent(new Student("Ofir", "12351", "", "052-2625431","Sokolov 6, Holon",false));
-        addStudent(new Student("Yuval", "12352", "", "054-8824040","Horesh 17, Rehovot",false));
-        addStudent(new Student("Yahav", "12353", "", "050-8206459","HaGolan 3, Netanya",false));
-        addStudent(new Student("Niv", "12354", "", "053-74962205","Bograshov 15, Tel Aviv",false));
+        addStudent(new Student("Paul", "111111111", "", "0511111","Hakishon 12",false));
+        addStudent(new Student("Taylor", "222222222", "", "05022222","Arlozorov 39",false));
+        addStudent(new Student("Dolly", "333333333", "", "05033333","Mikve israel 4",false));
+        addStudent(new Student("Justin", "444444444", "", "05044444","Maze 10 ",false));
+        addStudent(new Student("Katy", "555555555", "", "05055555","Bilu 3",false));
+        addStudent(new Student("Shown", "666666666", "", "05066666","Geva 9",false));
+        addStudent(new Student("Harry", "777777777", "", "05077777","Mandeli 54",false));
+        addStudent(new Student("Arthur", "88888888", "", "05088888","Kalisher 89",false));
+        addStudent(new Student("Bob", "999999999", "", "05099999","Yehuda Halevi 72",false));
+        addStudent(new Student("Janis", "121212121", "", "05012121","Bnei Dan 36",false));
+        addStudent(new Student("Amy", "131313131", "", "05013131","Raynes 14",false));
+        addStudent(new Student("Kurt", "141414141", "", "05014141","wolfson 54",false));
+        addStudent(new Student("Jeff", "151515151", "", "05015151","Levontin 19",false));
+        addStudent(new Student("Eric", "161616161", "", "050161616","King Geroge 119",false));
+        addStudent(new Student("Freddie", "171717171", "", "050171717","Amos 22",false));
 
 
     }
