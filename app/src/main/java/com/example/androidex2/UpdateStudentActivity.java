@@ -15,13 +15,13 @@ import com.example.androidex2.model.Student;
 
 import java.util.List;
 
-public class EditStudentActivity extends AppCompatActivity {
+public class UpdateStudentActivity extends AppCompatActivity {
     List<Student> studentsList;
     Model model;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_edit_student);
+        setContentView(R.layout.activity_update_student);
         Bundle extras = getIntent().getExtras();
         String studentId="", studentName="", studentPhone="", studentAddress="", studentCheckBox="";
         if (extras != null) {
