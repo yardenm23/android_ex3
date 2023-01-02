@@ -4,11 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import com.example.androidex2.model.Model;
 import com.example.androidex2.model.Student;
@@ -63,7 +61,7 @@ public class StudentDetailsActivity extends AppCompatActivity {
                 checkBox = "true";
             else
                 checkBox = "false";
-            Intent intentEdit = new Intent(this, EditStudentActivity.class);
+            Intent intentEdit = new Intent(this, UpdateStudentActivity.class);
             intentEdit.putExtra("id",id);
             intentEdit.putExtra("name", name);
             intentEdit.putExtra("phone", phone);

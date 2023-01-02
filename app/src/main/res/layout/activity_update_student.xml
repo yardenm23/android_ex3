@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".EditStudentActivity">
+    tools:context=".UpdateStudentActivity">
 
     <Button
         android:id="@+id/editstudent_save_btn"
@@ -132,7 +132,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.075"
-        app:srcCompat="@drawable/newavatar" />
+        app:srcCompat="@drawable/ava1" />
 
     <EditText
         android:id="@+id/editstudent_name_input"
