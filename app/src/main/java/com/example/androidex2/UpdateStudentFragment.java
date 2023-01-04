@@ -1,6 +1,5 @@
 package com.example.androidex2;
 
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -12,14 +11,12 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import com.example.androidex2.model.Model;
 
-public class StudentDetailsFragment extends Fragment {
+public class UpdateStudentFragment extends Fragment {
     Model model;
 
 
@@ -66,7 +63,7 @@ public class StudentDetailsFragment extends Fragment {
 
 
 //        Button studentDetailsEditBtn = view1.findViewById(R.id.studentdetails_edit_btn);
-        //studentDetailsEditBtn.setOnClickListener(view -> {
+            //studentDetailsEditBtn.setOnClickListener(view -> {
 //            String id= String.valueOf(stdId.getText());
             //String name = String.valueOf(stdName.getText());
 //            String phone = String.valueOf(stdPhone.getText());
@@ -83,15 +80,15 @@ public class StudentDetailsFragment extends Fragment {
 //            intentEdit.putExtra("address", address);
 //            intentEdit.putExtra("checkBox", checkBox);
 
-        //}
-        //);
-        //return view1;
-    }return view1;
-}
-    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
-        MenuItem item = menu.findItem(R.id.update_student);
-        item.setVisible(true);
-
+            //}
+            //);
+            //return view1;
+        }return view1;
     }
+//    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+//        MenuItem item = menu.findItem(R.id.update_student);
+//        item.setVisible(true);
+//
+//    }
 
 }

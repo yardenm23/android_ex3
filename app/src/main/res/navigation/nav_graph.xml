@@ -2,7 +2,7 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/nav_graph"
+    android:id="@+id/student_list"
     app:startDestination="@id/studentListFragment">
     <fragment
         android:id="@+id/studentListFragment"
@@ -16,9 +16,10 @@
     <fragment
         android:id="@+id/studentDetailsFragment"
         android:name="com.example.androidex2.StudentDetailsFragment"
-        android:label="fragment_student_details"
-        tools:layout="@layout/fragment_student_details" >
-        <argument android:name="student_name"
+        android:label="Student Detail"
+        tools:layout="@layout/fragment_student_details">
+        <argument
+            android:name="student_name"
             app:argType="string" />
         <argument
             android:name="student_id"
@@ -30,4 +31,17 @@
             android:name="student_address"
             app:argType="string" />
     </fragment>
+    <fragment
+        android:id="@+id/addStudentFragment"
+        android:name="com.example.androidex2.AddStudentFragment"
+        tools:layout="@layout/fragment_add_student" />
+    <action android:id="@+id/action_global_addStudentFragment" app:destination="@id/addStudentFragment" />
+    <fragment
+        android:id="@+id/updateStudentFragment"
+        android:name="com.example.androidex2.UpdateStudentFragment"
+        android:label="fragment_update_student"
+        tools:layout="@layout/fragment_update_student" />
+    <action android:id="@+id/action_global_updateStudentFragment" app:destination="@id/updateStudentFragment" />
+    <action android:id="@+id/action_global_studentListFragment" app:destination="@id/studentListFragment" />
+
 </navigation>

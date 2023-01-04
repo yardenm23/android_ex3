@@ -2,9 +2,16 @@ package com.example.androidex2;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.navigation.fragment.NavHostFragment;
 
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -23,24 +30,21 @@ AddStudentFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-
 
         View view1 =  inflater.inflate(R.layout.fragment_add_student, container, false);
+
         super.onCreate(savedInstanceState);
-        //setContentView(R.layout.activity_add_student);
 
         model = Model.instance();
 
         Button addStudentSaveBtn = view1.findViewById(R.id.addstudent_save_btn);
         addStudentSaveBtn.setOnClickListener(view -> {
-
-            EditText nameInput = view.findViewById(R.id.addstudent_name_input);
-            EditText idInput = view.findViewById(R.id.addstudent_id_input);
-            EditText phoneInput = view.findViewById(R.id.addstudent_phone_input);
-            EditText addressInput = view.findViewById(R.id.addstudent_address_input);
-            CheckBox checkBoxStatus = view.findViewById(R.id.addstudent_checkbox);
-            TextView errorTv = view.findViewById(R.id.addstudent_error_tv);
+            EditText nameInput = view1.findViewById(R.id.addstudent_name_input);
+            EditText idInput = view1.findViewById(R.id.addstudent_id_input);
+            EditText phoneInput = view1.findViewById(R.id.addstudent_phone_input);
+            EditText addressInput = view1.findViewById(R.id.addstudent_address_input);
+            CheckBox checkBoxStatus = view1.findViewById(R.id.addstudent_checkbox);
+            TextView errorTv = view1.findViewById(R.id.addstudent_error_tv);
 
             String nameInputVal = String.valueOf(nameInput.getText());
             String idInputVal = String.valueOf(idInput.getText());
@@ -54,18 +58,25 @@ AddStudentFragment extends Fragment {
                 errorTv.setText("Id is already exist");
             }
             else{
-//                Intent intentRecList = new Intent(this, StudentRecList.class);
-//                intentRecList.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-//                startActivity(intentRecList);
+                getFragmentManager().popBackStackImmediate();
+
+
 
             }
         });
 
-//        Button addStudentCancelBtn = view1.findViewById(R.id.cancel_add_student_button);
-//        addStudentCancelBtn.setOnClickListener(view -> {
-//            finish();
-//        });
-
+        Button addStudentCancelBtn = view1.findViewById(R.id.cancel_add_student_button);
+        addStudentCancelBtn.setOnClickListener(view -> {
+            getFragmentManager().popBackStackImmediate();
+        });
+        setHasOptionsMenu(true);
         return view1;
     }
+    @Override
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+        MenuItem item = menu.findItem(R.id.main_menu_add);
+        item.setVisible(false);
+
+    }
+
 }
