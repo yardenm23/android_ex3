@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
+import androidx.navigation.NavDirections;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -42,10 +43,9 @@ public class StudentListFragment extends Fragment {
             @Override
             public void onItemClick(int position) {
                 Student st = studentsList.get(position);
-                //StudentListDirections.<function_name>(st.getName())
-                //StudentLis
+                StudentListFragmentDirections.ActionStudentListFragmentToStudentDetailsFragment action = StudentListFragmentDirections.actionStudentListFragmentToStudentDetailsFragment(st.getName(), st.getId(), st.getPhone(), st.getAddress());
 
-               Navigation.findNavController(view).navigate(R.id.action_studentListFragment_to_studentDetailsFragment);
+               Navigation.findNavController(view).navigate(action);
             }
         });
 
