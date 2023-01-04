@@ -58,6 +58,7 @@ AddStudentFragment extends Fragment {
                 errorTv.setText("Id is already exist");
             }
             else{
+                new AlertDialogFragment().show(getActivity().getSupportFragmentManager(), "TAG");
                 getFragmentManager().popBackStackImmediate();
 
 
