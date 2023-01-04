@@ -41,6 +41,9 @@ public class StudentListFragment extends Fragment {
         adapter.setOnItemClickListener(new StudentListFragment.OnItemClickListener(){
             @Override
             public void onItemClick(int position) {
+                Student st = studentsList.get(position);
+                //StudentListDirections.<function_name>(st.getName())
+                //StudentLis
 
                Navigation.findNavController(view).navigate(R.id.action_studentListFragment_to_addStudentFragment);
             }
