@@ -45,7 +45,7 @@ public class StudentListFragment extends Fragment {
                 //StudentListDirections.<function_name>(st.getName())
                 //StudentLis
 
-               Navigation.findNavController(view).navigate(R.id.action_studentListFragment_to_addStudentFragment);
+               Navigation.findNavController(view).navigate(R.id.action_studentListFragment_to_studentDetailsFragment);
             }
         });
 
