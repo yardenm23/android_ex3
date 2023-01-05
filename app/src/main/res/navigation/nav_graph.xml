@@ -30,6 +30,12 @@
         <argument
             android:name="student_address"
             app:argType="string" />
+        <argument
+            android:name="student_birthdate"
+            app:argType="string" />
+        <argument
+            android:name="student_birthtime"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/addStudentFragment"

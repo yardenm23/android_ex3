@@ -1,5 +1,8 @@
 package com.example.androidex2;
 
+import android.app.DatePickerDialog;
+import android.app.Dialog;
+import android.app.TimePickerDialog;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -12,6 +15,7 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -19,41 +23,57 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.example.androidex2.databinding.FragmentAddStudentBinding;
 import com.example.androidex2.model.Model;
 import com.example.androidex2.model.Student;
 
 public class
 AddStudentFragment extends Fragment {
     Model model;
+    FragmentAddStudentBinding binding;
+
+    int d = 1;
+    int m = 0;
+    int y = 2023;
+    int hour = 0;
+    int minute = 0;
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View view1 =  inflater.inflate(R.layout.fragment_add_student, container, false);
+        //View view1 =  inflater.inflate(R.layout.fragment_add_student, container, false);
+        binding = FragmentAddStudentBinding.inflate(inflater, container, false);
+
 
         super.onCreate(savedInstanceState);
 
         model = Model.instance();
 
-        Button addStudentSaveBtn = view1.findViewById(R.id.addstudent_save_btn);
+        Button addStudentSaveBtn = binding.addstudentSaveBtn;
         addStudentSaveBtn.setOnClickListener(view -> {
-            EditText nameInput = view1.findViewById(R.id.addstudent_name_input);
-            EditText idInput = view1.findViewById(R.id.addstudent_id_input);
-            EditText phoneInput = view1.findViewById(R.id.addstudent_phone_input);
-            EditText addressInput = view1.findViewById(R.id.addstudent_address_input);
-            CheckBox checkBoxStatus = view1.findViewById(R.id.addstudent_checkbox);
-            TextView errorTv = view1.findViewById(R.id.addstudent_error_tv);
+            EditText nameInput = binding.addstudentNameInput;
+            EditText idInput = binding.addstudentIdInput;
+            EditText phoneInput = binding.addstudentPhoneInput;
+            EditText addressInput = binding.addstudentAddressInput;
+            CheckBox checkBoxStatus = binding.addstudentCheckbox;
+            TextView errorTv = binding.addstudentErrorTv;
+            TextView yearTv = binding.dateInputEt;
+            TextView timeTv = binding.timeInputEt;
+
 
             String nameInputVal = String.valueOf(nameInput.getText());
             String idInputVal = String.valueOf(idInput.getText());
             String phoneInputVal = String.valueOf(phoneInput.getText());
             String addressInputVal = String.valueOf(addressInput.getText());
             Boolean checkBoxVal = checkBoxStatus.isChecked();
+            String yearVal = String.valueOf(yearTv.getText());
+            String timeVal = String.valueOf(timeTv.getText());
+
 
             boolean is_student_added = false;
-            is_student_added = model.addStudent(new Student(nameInputVal, idInputVal, "",phoneInputVal,addressInputVal, checkBoxVal));
+            is_student_added = model.addStudent(new Student(nameInputVal, idInputVal, "",phoneInputVal,addressInputVal, checkBoxVal, yearVal, timeVal));
             if(!is_student_added){
                 errorTv.setText("Id is already exist");
             }
@@ -61,22 +81,64 @@ AddStudentFragment extends Fragment {
                 new AlertDialogFragment().show(getActivity().getSupportFragmentManager(), "TAG");
                 getFragmentManager().popBackStackImmediate();
 
-
-
             }
         });
 
-        Button addStudentCancelBtn = view1.findViewById(R.id.cancel_add_student_button);
+        Button addStudentCancelBtn = binding.cancelAddStudentButton;
         addStudentCancelBtn.setOnClickListener(view -> {
             getFragmentManager().popBackStackImmediate();
         });
         setHasOptionsMenu(true);
-        return view1;
+
+        binding.dateInputEt.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent1) {
+                if (motionEvent1.getAction() == MotionEvent.ACTION_DOWN){
+                    Dialog dialog1 = new DatePickerDialog(getContext(),(datePicker, yy, mm, dd)->{
+                        y = yy;
+                        m = mm;
+                        d = dd;
+                        setDate();
+                    },y,m,d);
+                    dialog1.show();
+                    return true;
+                }
+                return false;
+            }
+        });
+
+
+        binding.timeInputEt.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent2) {
+                if (motionEvent2.getAction() == MotionEvent.ACTION_DOWN){
+                    Dialog dialog2 = new TimePickerDialog(getContext(),(datePicker, input_hour, input_minute)->{
+                        hour = input_hour;
+                        minute = input_minute;
+                        setTime();
+                    },hour,minute,false);
+                    dialog2.show();
+                    return true;
+                }
+                return false;
+            }
+        });
+
+        return binding.getRoot();
     }
     @Override
     public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
         MenuItem item = menu.findItem(R.id.main_menu_add);
         item.setVisible(false);
+
+    }
+
+    void setDate() {
+        binding.dateInputEt.setText("" + d + "/" + (m) + "/" + y);
+    }
+
+    void setTime(){
+        binding.timeInputEt.setText("" + hour + " : " + minute);
 
     }
 

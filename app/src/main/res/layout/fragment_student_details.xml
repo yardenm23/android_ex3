@@ -6,10 +6,12 @@
     android:layout_height="match_parent"
     tools:context=".StudentDetailsFragment">
 
+
+
     <ImageView
         android:id="@+id/studentdetails_avatar_img"
-        android:layout_width="170dp"
-        android:layout_height="170dp"
+        android:layout_width="101dp"
+        android:layout_height="86dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.136"
@@ -23,80 +25,30 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="33dp"
-        android:layout_marginEnd="343dp"
         android:text="Name :"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.146"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/studentdetails_avatar_img"
-        app:layout_constraintVertical_bias="0.059" />
+        app:layout_constraintVertical_bias="0.027" />
 
     <TextView
         android:id="@+id/studentdetails_id_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="33dp"
         android:layout_marginTop="28dp"
-        android:layout_marginEnd="367dp"
         android:text="ID :"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.944"
+        app:layout_constraintHorizontal_bias="0.23"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/studentdetails_name_tv"
-        app:layout_constraintVertical_bias="0.011" />
+        app:layout_constraintVertical_bias="0.019" />
 
-    <TextView
-        android:id="@+id/studentdetails_phone_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="33dp"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="339dp"
-        android:text="Phone :"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.607"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/studentdetails_id_tv"
-        app:layout_constraintVertical_bias="0.037" />
-
-    <TextView
-        android:id="@+id/studentdetails_address_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="33dp"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="327dp"
-        android:text="Address :"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/studentdetails_phone_tv"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <CheckBox
-        android:id="@+id/studentdetails_cb"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="33dp"
-        android:layout_marginEnd="284dp"
-        android:text="Checked"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/studentdetails_address_tv"
-        app:layout_constraintVertical_bias="0.175" />
-
-<!--    <Button-->
+    <!--    <Button-->
 <!--        android:id="@+id/studentdetails_edit_btn"-->
 <!--        android:layout_width="88dp"-->
 <!--        android:layout_height="48dp"-->
@@ -110,9 +62,111 @@
 <!--        app:layout_constraintTop_toBottomOf="@+id/studentdetails_std_address"-->
 <!--        app:layout_constraintVertical_bias="0.583" />-->
 
+    <TextView
+        android:id="@+id/studentdetails_phone_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="33dp"
+        android:layout_marginTop="28dp"
+        android:text="Phone :"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.176"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/studentdetails_id_tv"
+        app:layout_constraintVertical_bias="0.033" />
+
+    <TextView
+        android:id="@+id/studentdetails_address_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="33dp"
+        android:layout_marginTop="28dp"
+        android:text="Address :"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.156"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/studentdetails_phone_tv"
+        app:layout_constraintVertical_bias="0.073" />
+
+    <TextView
+        android:id="@+id/birthtime_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="33dp"
+        android:layout_marginTop="28dp"
+        android:text="Birth Time"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.693"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/studentdetails_phone_tv"
+        app:layout_constraintVertical_bias="0.442" />
+
+    <TextView
+        android:id="@+id/birthdate_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="33dp"
+        android:layout_marginTop="28dp"
+        android:text="Birth Date"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.156"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/studentdetails_phone_tv"
+        app:layout_constraintVertical_bias="0.442" />
+
+    <EditText
+        android:id="@+id/student_birthdate"
+        android:layout_width="132dp"
+        android:layout_height="38dp"
+        android:layout_marginEnd="20dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/student_birthtime"
+        app:layout_constraintTop_toBottomOf="@+id/studentdetails_address_tv" />
+
+    <EditText
+        android:id="@+id/studentdetails_std_address"
+        android:layout_width="104dp"
+        android:layout_height="33dp"
+        android:layout_marginTop="79dp"
+        android:layout_marginEnd="68dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/studentdetails_std_phone"
+        app:layout_constraintVertical_bias="0.054" />
+
+    <CheckBox
+        android:id="@+id/studentdetails_cb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="33dp"
+        android:text="Checked"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.072"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/studentdetails_address_tv"
+        app:layout_constraintVertical_bias="0.099" />
+
     <EditText
         android:id="@+id/studentdetails_std_name"
-        android:layout_width="149dp"
+        android:layout_width="129dp"
         android:layout_height="43dp"
         android:ems="10"
         android:inputType="textPersonName"
@@ -128,8 +182,8 @@
 
     <EditText
         android:id="@+id/studentdetails_std_id"
-        android:layout_width="149dp"
-        android:layout_height="56dp"
+        android:layout_width="120dp"
+        android:layout_height="43dp"
         android:layout_marginTop="10dp"
         android:ems="10"
         android:inputType="number"
@@ -143,8 +197,8 @@
 
     <EditText
         android:id="@+id/studentdetails_std_phone"
-        android:layout_width="151dp"
-        android:layout_height="58dp"
+        android:layout_width="113dp"
+        android:layout_height="40dp"
         android:layout_marginTop="10dp"
         android:ems="10"
         android:inputType="phone"
@@ -157,18 +211,19 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <EditText
-        android:id="@+id/studentdetails_std_address"
-        android:layout_width="141dp"
-        android:layout_height="40dp"
+        android:id="@+id/student_birthtime"
+        android:layout_width="124dp"
+        android:layout_height="42dp"
         android:layout_marginStart="4dp"
-        android:layout_marginTop="10dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:minHeight="48dp"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.587"
+        app:layout_constraintHorizontal_bias="0.453"
         app:layout_constraintStart_toEndOf="@+id/studentdetails_address_tv"
-        app:layout_constraintTop_toBottomOf="@+id/studentdetails_std_phone"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/birthtime_tv"
+        app:layout_constraintVertical_bias="0.038" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
