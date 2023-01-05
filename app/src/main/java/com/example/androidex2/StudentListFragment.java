@@ -10,6 +10,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
@@ -50,6 +53,15 @@ public class StudentListFragment extends Fragment {
         });
 
         return view;
+    }
+
+    @Override
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+        MenuItem item = menu.findItem(R.id.main_menu_add);
+        item.setVisible(false);
+        MenuItem item1 = menu.findItem(R.id.update_student);
+        item1.setVisible(false);
+
     }
 
 
@@ -118,4 +130,7 @@ public class StudentListFragment extends Fragment {
             return studentsList.size();
         }
     }
+
+
+
 }

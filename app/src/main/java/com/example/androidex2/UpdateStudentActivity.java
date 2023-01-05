@@ -1,10 +1,14 @@
 package com.example.androidex2;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -65,11 +69,7 @@ public class UpdateStudentActivity extends AppCompatActivity {
             else if(editResult==0){
                 errorTv.setText("Couldn't find the id");
             }
-//            else{
-//                Intent intentRecList = new Intent(this, StudentRecList.class);
-//                intentRecList.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-//                startActivity(intentRecList);
-//            }
+
         });
         Button editStudentDeleteBtn = findViewById(R.id.editstudent_delete_btn);
         editStudentDeleteBtn.setOnClickListener(view->{
@@ -81,16 +81,15 @@ public class UpdateStudentActivity extends AppCompatActivity {
             boolean isDeleted = model.deleteStudent(new Student(nameInputVal, idInputVal,"", phoneInputVal, addressInputVal, checkBoxVal, "2022", "06:54"));
             if(!isDeleted)
                 errorTv.setText("Student not found");
-//            else{
-//                Intent intentRecList = new Intent(this, StudentRecList.class);
-//                intentRecList.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-//                startActivity(intentRecList);
-//            }
+
 
         });
         Button editStudentCancelBtn = findViewById(R.id.editstudent_cancel_btn);
         editStudentCancelBtn.setOnClickListener(view -> {
             finish();
         });
+
     }
+
+
 }

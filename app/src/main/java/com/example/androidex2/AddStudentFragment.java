@@ -130,6 +130,8 @@ AddStudentFragment extends Fragment {
     public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
         MenuItem item = menu.findItem(R.id.main_menu_add);
         item.setVisible(false);
+        MenuItem item1 = menu.findItem(R.id.update_student);
+        item1.setVisible(false);
 
     }
 
