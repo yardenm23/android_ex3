@@ -46,7 +46,12 @@
         android:id="@+id/updateStudentFragment"
         android:name="com.example.androidex2.UpdateStudentFragment"
         android:label="fragment_update_student"
-        tools:layout="@layout/fragment_update_student" />
+        tools:layout="@layout/fragment_update_student" >
+        <argument
+            android:name="student_position"
+            app:argType="integer"
+            android:defaultValue="1" />
+    </fragment>
     <action android:id="@+id/action_global_updateStudentFragment" app:destination="@id/updateStudentFragment" />
     <action android:id="@+id/action_global_studentListFragment" app:destination="@id/studentListFragment" />
 

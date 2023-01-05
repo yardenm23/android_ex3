@@ -11,8 +11,6 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.example.androidex2.model.Student;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
     NavController navController;
@@ -41,11 +39,15 @@ public class MainActivity extends AppCompatActivity {
             navController.navigate(R.id.action_global_addStudentFragment);
         }
         else if (item.getItemId() ==R.id.update_student){
-            navController.navigate(R.id.action_global_updateStudentFragment);
+            int position = 1;
+
+            Bundle bundle = new Bundle();
+            bundle.putInt("student_pos", position);
+            navController.navigate(R.id.action_global_updateStudentFragment,bundle);
 
         }
         return super.onOptionsItemSelected(item);
 
 
-    }
+        }
 }
