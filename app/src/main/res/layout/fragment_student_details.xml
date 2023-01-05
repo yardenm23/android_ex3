@@ -226,4 +226,13 @@
         app:layout_constraintTop_toBottomOf="@+id/birthtime_tv"
         app:layout_constraintVertical_bias="0.038" />
 
+    <Button
+        android:id="@+id/studentdetails_edit_btn"
+        android:layout_width="88dp"
+        android:layout_height="48dp"
+        android:alpha="1"
+        android:text="EDIT"
+        tools:layout_editor_absoluteX="324dp"
+        tools:layout_editor_absoluteY="1dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
