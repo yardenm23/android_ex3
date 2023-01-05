@@ -7,14 +7,20 @@ public class Student {
     String phone;
     String address;
     Boolean checkBox;
+    String year ="2023";
+    String mounth = "01";
+    String day = "01";
 
-    public Student(String name, String id, String avatarUrl, String phone, String address, Boolean checkBox) {
+    public Student(String name, String id, String avatarUrl, String phone, String address, Boolean checkBox, String year) {
         this.name = name;
         this.id = id;
         this.avatarUrl = avatarUrl;
         this.phone = phone;
         this.address = address;
         this.checkBox = checkBox;
+        this.year=year;
+        this.mounth=mounth;
+        this.day = day;
     }
 
     public String getName() {
@@ -56,5 +62,20 @@ public class Student {
     public String getAddress() {return address;}
 
     public void setAddress(String address) {this.address = address;}
+
+//    public String getYear() {return year;}
+//
+//    public void setYear(String year) {this.year = year;}
+//
+//    public String getMounth() {return mounth;}
+//
+//    public void setMounth(String mounth) {this.mounth = mounth;}
+//
+//    public String getDay() {return day;}
+//
+//    public void setDay(String day) {this.day = day;}
+
+    public String getBirthDate() {return "" + day + "/" + mounth + "/" + year;}
+
 
 }

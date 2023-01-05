@@ -58,7 +58,7 @@ public class UpdateStudentActivity extends AppCompatActivity {
             String phoneInputVal = String.valueOf(phoneInput.getText());
             String addressInputVal = String.valueOf(addressInput.getText());
             Boolean checkBoxVal = checkBox.isChecked();
-            int editResult = model.editStudent(finalStudentId, new Student(nameInputVal, idInputVal,"",phoneInputVal,addressInputVal, checkBoxVal));
+            int editResult = model.editStudent(finalStudentId, new Student(nameInputVal, idInputVal,"",phoneInputVal,addressInputVal, checkBoxVal, "2021"));
             if(editResult == -1){
                 errorTv.setText("Id already exist");
             }
@@ -78,7 +78,7 @@ public class UpdateStudentActivity extends AppCompatActivity {
             String phoneInputVal = String.valueOf(phoneInput.getText());
             String addressInputVal = String.valueOf(addressInput.getText());
             Boolean checkBoxVal = checkBox.isChecked();
-            boolean isDeleted = model.deleteStudent(new Student(nameInputVal, idInputVal,"", phoneInputVal, addressInputVal, checkBoxVal));
+            boolean isDeleted = model.deleteStudent(new Student(nameInputVal, idInputVal,"", phoneInputVal, addressInputVal, checkBoxVal, "2022"));
             if(!isDeleted)
                 errorTv.setText("Student not found");
 //            else{

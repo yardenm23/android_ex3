@@ -43,7 +43,7 @@ public class StudentListFragment extends Fragment {
             @Override
             public void onItemClick(int position) {
                 Student st = studentsList.get(position);
-                StudentListFragmentDirections.ActionStudentListFragmentToStudentDetailsFragment action = StudentListFragmentDirections.actionStudentListFragmentToStudentDetailsFragment(st.getName(), st.getId(), st.getPhone(), st.getAddress());
+                StudentListFragmentDirections.ActionStudentListFragmentToStudentDetailsFragment action = StudentListFragmentDirections.actionStudentListFragmentToStudentDetailsFragment(st.getName(), st.getId(), st.getPhone(), st.getAddress(), st.getBirthDate());
 
                Navigation.findNavController(view).navigate(action);
             }
