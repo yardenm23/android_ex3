@@ -1,16 +1,17 @@
 package com.example.androidex2;
 
+import android.os.Bundle;
+
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
+import androidx.navigation.NavDirections;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-
-import android.content.Intent;
-import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.TextView;
 
@@ -19,56 +20,48 @@ import com.example.androidex2.model.Student;
 
 import java.util.List;
 
-public class StudentRecList extends AppCompatActivity {
+
+public class StudentListFragment extends Fragment {
     List<Student> studentsList;
 
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_student_rec_list);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
 
-        Button addStudentBtn = findViewById(R.id.studentreclist_add_student_btn);
-        addStudentBtn.setOnClickListener(view -> {
-
-            Intent intent = new Intent(this, AddStudentActivity.class);
-            startActivity(intent);
-        });
-
+        View view = inflater.inflate(R.layout.fragment_student_list, container, false);
 
         studentsList = Model.instance().getAllStudent();
-        RecyclerView recyclerList = findViewById(R.id.studentrec_list);
+        RecyclerView recyclerList = view.findViewById(R.id.fragment_student_list);
         recyclerList.setHasFixedSize(true);
 
-        recyclerList.setLayoutManager(new LinearLayoutManager(this));
-        StudentRecAdapter adapter = new StudentRecAdapter();
+        recyclerList.setLayoutManager(new LinearLayoutManager(getContext()));
+        StudentListFragmentAdapter adapter = new StudentListFragmentAdapter();
         recyclerList.setAdapter(adapter);
 
-        adapter.setOnItemClickListener(new OnItemClickListener() {
+        adapter.setOnItemClickListener(new StudentListFragment.OnItemClickListener(){
             @Override
             public void onItemClick(int position) {
-                Student student = studentsList.get(position);
-                String nameToSend = student.getName();
-                String idToSend = student.getId();
-                String phoneToSend = student.getPhone();
-                String addressToSend = student.getAddress();
-                String cbToSend = String.valueOf(student.getCheckBox());
+                Student st = studentsList.get(position);
+                StudentListFragmentDirections.ActionStudentListFragmentToStudentDetailsFragment action = StudentListFragmentDirections.actionStudentListFragmentToStudentDetailsFragment(st.getName(), st.getId(), st.getPhone(), st.getAddress());
 
-                Intent intent = new Intent(StudentRecList.this, StudentDetailsActivity.class);
-                intent.putExtra("Name", nameToSend);
-                intent.putExtra("ID", idToSend);
-                intent.putExtra("Phone", phoneToSend);
-                intent.putExtra("Address",addressToSend);
-                intent.putExtra("CheckBox",cbToSend);
-                startActivity(intent);
+               Navigation.findNavController(view).navigate(action);
             }
         });
+
+        return view;
     }
+
 
     class StudentViewHolder extends RecyclerView.ViewHolder{
         TextView nameTextView;
         TextView idTextView;
         CheckBox checkBox;
-        public StudentViewHolder(@NonNull View itemView, OnItemClickListener listener) {
+        public
+
+
+
+        StudentViewHolder(@NonNull View itemView, StudentListFragment.OnItemClickListener listener) {
             super(itemView);
             nameTextView = itemView.findViewById(R.id.studentlistrow_name_tv);
             idTextView = itemView.findViewById(R.id.studentlistrow_id_tv);
@@ -101,20 +94,22 @@ public class StudentRecList extends AppCompatActivity {
     public interface OnItemClickListener{
         void onItemClick(int position);
     }
-    class StudentRecAdapter extends RecyclerView.Adapter<StudentViewHolder>{
-        OnItemClickListener listener;
-        void setOnItemClickListener(OnItemClickListener listener){
+    class StudentListFragmentAdapter extends RecyclerView.Adapter<StudentListFragment.StudentViewHolder>{
+        StudentListFragment.OnItemClickListener listener;
+        void setOnItemClickListener(StudentListFragment.OnItemClickListener listener){
             this.listener = listener;
         }
         @NonNull
         @Override
-        public StudentViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        public StudentListFragment.StudentViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
             View view = getLayoutInflater().inflate(R.layout.student_list_row,parent,false);
-            return  new StudentViewHolder(view,listener);
+            return new StudentListFragment.StudentViewHolder(view,listener);
         }
 
+
+
         @Override
-        public void onBindViewHolder(@NonNull StudentViewHolder holder, int position) {             Student student = studentsList.get(position);
+        public void onBindViewHolder(@NonNull StudentListFragment.StudentViewHolder holder, int position) {             Student student = studentsList.get(position);
             holder.bind(student,position);
         }
 

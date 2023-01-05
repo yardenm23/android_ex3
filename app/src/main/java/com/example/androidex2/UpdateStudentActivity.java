@@ -65,11 +65,11 @@ public class UpdateStudentActivity extends AppCompatActivity {
             else if(editResult==0){
                 errorTv.setText("Couldn't find the id");
             }
-            else{
-                Intent intentRecList = new Intent(this, StudentRecList.class);
-                intentRecList.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(intentRecList);
-            }
+//            else{
+//                Intent intentRecList = new Intent(this, StudentRecList.class);
+//                intentRecList.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+//                startActivity(intentRecList);
+//            }
         });
         Button editStudentDeleteBtn = findViewById(R.id.editstudent_delete_btn);
         editStudentDeleteBtn.setOnClickListener(view->{
@@ -81,11 +81,11 @@ public class UpdateStudentActivity extends AppCompatActivity {
             boolean isDeleted = model.deleteStudent(new Student(nameInputVal, idInputVal,"", phoneInputVal, addressInputVal, checkBoxVal));
             if(!isDeleted)
                 errorTv.setText("Student not found");
-            else{
-                Intent intentRecList = new Intent(this, StudentRecList.class);
-                intentRecList.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(intentRecList);
-            }
+//            else{
+//                Intent intentRecList = new Intent(this, StudentRecList.class);
+//                intentRecList.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+//                startActivity(intentRecList);
+//            }
 
         });
         Button editStudentCancelBtn = findViewById(R.id.editstudent_cancel_btn);
