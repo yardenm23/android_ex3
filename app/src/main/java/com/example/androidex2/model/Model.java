@@ -11,21 +11,21 @@ public class Model {
     }
 
     private Model() {
-        addStudent(new Student("Paul", "111111111", "", "0511111","Hakishon 12",false, "2025"));
-        addStudent(new Student("Taylor", "222222222", "", "05022222","Arlozorov 39",false, "2020"));
-        addStudent(new Student("Dolly", "333333333", "", "05033333","Mikve israel 4",false, "2021"));
-        addStudent(new Student("Justin", "444444444", "", "05044444","Maze 10 ",false, "2014"));
-        addStudent(new Student("Katy", "555555555", "", "05055555","Bilu 3",false, "2019"));
-        addStudent(new Student("Shown", "666666666", "", "05066666","Geva 9",false, "2019"));
-        addStudent(new Student("Harry", "777777777", "", "05077777","Mandeli 54",false, "2018"));
-        addStudent(new Student("Arthur", "88888888", "", "05088888","Kalisher 89",false, "2017"));
-        addStudent(new Student("Bob", "999999999", "", "05099999","Yehuda Halevi 72",false, "2015"));
-        addStudent(new Student("Janis", "121212121", "", "05012121","Bnei Dan 36",false, "2021"));
-        addStudent(new Student("Amy", "131313131", "", "05013131","Raynes 14",false, "2020"));
-        addStudent(new Student("Kurt", "141414141", "", "05014141","wolfson 54",false, "2019"));
-        addStudent(new Student("Jeff", "151515151", "", "05015151","Levontin 19",false, "2015"));
-        addStudent(new Student("Eric", "161616161", "", "050161616","King Geroge 119",false, "2018"));
-        addStudent(new Student("Freddie", "171717171", "", "050171717","Amos 22",false, "2017"));
+        addStudent(new Student("Paul", "111111111", "", "0511111","Hakishon 12",false, "2025", "10:23"));
+        addStudent(new Student("Taylor", "222222222", "", "05022222","Arlozorov 39",false, "2020", "11:43"));
+        addStudent(new Student("Dolly", "333333333", "", "05033333","Mikve israel 4",false, "2021", "03:12"));
+        addStudent(new Student("Justin", "444444444", "", "05044444","Maze 10 ",false, "2014", "08:46"));
+        addStudent(new Student("Katy", "555555555", "", "05055555","Bilu 3",false, "2019", "02:14"));
+        addStudent(new Student("Shown", "666666666", "", "05066666","Geva 9",false, "2019", "06:32"));
+        addStudent(new Student("Harry", "777777777", "", "05077777","Mandeli 54",false, "2018", "01:45"));
+        addStudent(new Student("Arthur", "88888888", "", "05088888","Kalisher 89",false, "2017", "4:37"));
+        addStudent(new Student("Bob", "999999999", "", "05099999","Yehuda Halevi 72",false, "2015", "05:01"));
+        addStudent(new Student("Janis", "121212121", "", "05012121","Bnei Dan 36",false, "2021", "10:44"));
+        addStudent(new Student("Amy", "131313131", "", "05013131","Raynes 14",false, "2020", "07:56"));
+        addStudent(new Student("Kurt", "141414141", "", "05014141","wolfson 54",false, "2019", "03:18"));
+        addStudent(new Student("Jeff", "151515151", "", "05015151","Levontin 19",false, "2015", "07:40"));
+        addStudent(new Student("Eric", "161616161", "", "050161616","King Geroge 119",false, "2018", "09:48"));
+        addStudent(new Student("Freddie", "171717171", "", "050171717","Amos 22",false, "2017", "08:29"));
 
 
     }

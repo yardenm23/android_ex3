@@ -35,8 +35,8 @@ AddStudentFragment extends Fragment {
     int d = 1;
     int m = 0;
     int y = 2023;
-    int ho = 0;
-    int mi = 0;
+    int hour = 0;
+    int minute = 0;
 
 
     @Override
@@ -60,6 +60,7 @@ AddStudentFragment extends Fragment {
             CheckBox checkBoxStatus = binding.addstudentCheckbox;
             TextView errorTv = binding.addstudentErrorTv;
             TextView yearTv = binding.dateInputEt;
+            TextView timeTv = binding.timeInputEt;
 
 
             String nameInputVal = String.valueOf(nameInput.getText());
@@ -68,9 +69,11 @@ AddStudentFragment extends Fragment {
             String addressInputVal = String.valueOf(addressInput.getText());
             Boolean checkBoxVal = checkBoxStatus.isChecked();
             String yearVal = String.valueOf(yearTv.getText());
+            String timeVal = String.valueOf(timeTv.getText());
+
 
             boolean is_student_added = false;
-            is_student_added = model.addStudent(new Student(nameInputVal, idInputVal, "",phoneInputVal,addressInputVal, checkBoxVal, yearVal));
+            is_student_added = model.addStudent(new Student(nameInputVal, idInputVal, "",phoneInputVal,addressInputVal, checkBoxVal, yearVal, timeVal));
             if(!is_student_added){
                 errorTv.setText("Id is already exist");
             }
@@ -104,21 +107,22 @@ AddStudentFragment extends Fragment {
             }
         });
 
-//        binding.timeInputEt.setOnTouchListener(new View.OnTouchListener() {
-//            @Override
-//            public boolean onTouch(View view, MotionEvent motionEvent2) {
-//                if (motionEvent2.getAction() == MotionEvent.ACTION_DOWN){
-//                    Dialog dialog2 = new TimePickerDialog(getContext(),(timePicker, input_hour, input_min) ->{
-//                        ho = input_hour;
-//                        mi = input_min;
-//                        setTime();
-//                    },ho, mi);
-//                    dialog2.show();
-//                    return true;
-//                }
-//                return false;
-//            }
-//        });
+
+        binding.timeInputEt.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent2) {
+                if (motionEvent2.getAction() == MotionEvent.ACTION_DOWN){
+                    Dialog dialog2 = new TimePickerDialog(getContext(),(datePicker, input_hour, input_minute)->{
+                        hour = input_hour;
+                        minute = input_minute;
+                        setTime();
+                    },hour,minute,false);
+                    dialog2.show();
+                    return true;
+                }
+                return false;
+            }
+        });
 
         return binding.getRoot();
     }
@@ -134,7 +138,7 @@ AddStudentFragment extends Fragment {
     }
 
     void setTime(){
-        binding.timeInputEt.setText("" + ho + " : " + mi);
+        binding.timeInputEt.setText("" + hour + " : " + minute);
 
     }
 

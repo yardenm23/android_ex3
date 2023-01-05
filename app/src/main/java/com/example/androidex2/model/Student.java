@@ -10,8 +10,9 @@ public class Student {
     String year ="2023";
     String mounth = "01";
     String day = "01";
+    String time;
 
-    public Student(String name, String id, String avatarUrl, String phone, String address, Boolean checkBox, String year) {
+    public Student(String name, String id, String avatarUrl, String phone, String address, Boolean checkBox, String year, String time) {
         this.name = name;
         this.id = id;
         this.avatarUrl = avatarUrl;
@@ -19,8 +20,8 @@ public class Student {
         this.address = address;
         this.checkBox = checkBox;
         this.year=year;
-        this.mounth=mounth;
-        this.day = day;
+        this.time = time;
+
     }
 
     public String getName() {
@@ -63,19 +64,10 @@ public class Student {
 
     public void setAddress(String address) {this.address = address;}
 
-//    public String getYear() {return year;}
-//
-//    public void setYear(String year) {this.year = year;}
-//
-//    public String getMounth() {return mounth;}
-//
-//    public void setMounth(String mounth) {this.mounth = mounth;}
-//
-//    public String getDay() {return day;}
-//
-//    public void setDay(String day) {this.day = day;}
 
     public String getBirthDate() {return "" + day + "/" + mounth + "/" + year;}
+
+    public String getBirthTime() {return time;}
 
 
 }

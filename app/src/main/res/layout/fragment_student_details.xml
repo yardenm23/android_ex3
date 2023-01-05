@@ -124,18 +124,16 @@
 
     <EditText
         android:id="@+id/student_birthdate"
-        android:layout_width="104dp"
-        android:layout_height="33dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="228dp"
+        android:layout_width="132dp"
+        android:layout_height="38dp"
+        android:layout_marginEnd="20dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:minHeight="48dp"
-        android:textSize="12sp"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/studentdetails_std_phone"
-        app:layout_constraintVertical_bias="0.58" />
+        app:layout_constraintEnd_toStartOf="@+id/student_birthtime"
+        app:layout_constraintTop_toBottomOf="@+id/studentdetails_address_tv" />
 
     <EditText
         android:id="@+id/studentdetails_std_address"
@@ -213,18 +211,19 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <EditText
-        android:id="@+id/studentdetails_std_address3"
-        android:layout_width="103dp"
-        android:layout_height="30dp"
+        android:id="@+id/student_birthtime"
+        android:layout_width="124dp"
+        android:layout_height="42dp"
         android:layout_marginStart="4dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:minHeight="48dp"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.432"
+        app:layout_constraintHorizontal_bias="0.453"
         app:layout_constraintStart_toEndOf="@+id/studentdetails_address_tv"
         app:layout_constraintTop_toBottomOf="@+id/birthtime_tv"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.038" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

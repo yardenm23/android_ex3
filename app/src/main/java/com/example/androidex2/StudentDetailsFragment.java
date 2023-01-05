@@ -24,10 +24,6 @@ public class StudentDetailsFragment extends Fragment {
     Model model;
     FragmentStudentDetailsBinding binding;
 
-//    int d = 1;
-//    int m = 0;
-//    int y = 2023;
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -40,6 +36,7 @@ public class StudentDetailsFragment extends Fragment {
         String stdAddressVal= StudentDetailsFragmentArgs.fromBundle(getArguments()).getStudentAddress();
         String stdCb= StudentDetailsFragmentArgs.fromBundle(getArguments()).getStudentId();
         String stdBirthdateVal = StudentDetailsFragmentArgs.fromBundle(getArguments()).getStudentBirthdate();
+        String stdBirthtimeVal = StudentDetailsFragmentArgs.fromBundle(getArguments()).getStudentBirthtime();
 
         model = Model.instance();
 
@@ -49,12 +46,15 @@ public class StudentDetailsFragment extends Fragment {
         EditText stdAddress = binding.studentdetailsStdAddress;
         CheckBox cBox = binding.studentdetailsCb;
         EditText stdBirthdate = binding.studentBirthdate;
+        EditText stdBirthtime = binding.studentBirthtime;
+
 
         stdName.setText(stdNameVal);
         stdId.setText(stdIdVal);
         stdPhone.setText(stdPhoneVal);
         stdAddress.setText(stdAddressVal);
         stdBirthdate.setText(stdBirthdateVal);
+        stdBirthtime.setText(stdBirthtimeVal);
         if(stdCb.equals("true")) {
             cBox.setChecked(true);
         }
