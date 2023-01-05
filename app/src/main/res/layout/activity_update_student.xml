@@ -132,7 +132,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.075"
-        app:srcCompat="@drawable/ava1" />
+        app:srcCompat="@drawable/student" />
 
     <EditText
         android:id="@+id/editstudent_name_input"

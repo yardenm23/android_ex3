@@ -31,9 +31,6 @@ public class StudentDetailsFragment extends Fragment {
     Model model;
     FragmentStudentDetailsBinding binding;
 
-
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -70,39 +67,11 @@ public class StudentDetailsFragment extends Fragment {
         }
 
 
-        Button studentDetailsEditBtn = binding.studentdetailsEditBtn;
-        studentDetailsEditBtn.setOnClickListener(view -> {
-            String id= String.valueOf(stdId.getText());
-            String name = String.valueOf(stdName.getText());
-            String phone = String.valueOf(stdPhone.getText());
-            String address = String.valueOf(stdAddress.getText());
-            String checkBox = "";
-            if(cBox.isChecked())
-                checkBox = "true";
-            else
-                checkBox = "false";
-
-            Bundle bundle = new Bundle();
-            bundle.putString("student_id", "123");
-            Navigation.findNavController(view).navigate(R.id.action_global_studentListFragment, bundle);
-
-//            Intent intentEdit = new Intent(this, EditStudentActivity.class);
-//            intentEdit.putExtra("id",id);
-//            intentEdit.putExtra("name", name);
-//            intentEdit.putExtra("phone", phone);
-//            intentEdit.putExtra("address", address);
-//            intentEdit.putExtra("checkBox", checkBox);
-//
-//            startActivity(intentEdit);
-        });
-
-
     return binding.getRoot();
 }
     public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
         MenuItem item = menu.findItem(R.id.update_student);
         item.setVisible(true);
-
     }
 
 
